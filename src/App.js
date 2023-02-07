@@ -1,19 +1,34 @@
 import './App.css';
 import { useState } from 'react';
-
+import { ComponentResultat, ComponentButton } from './components/ComponentBtn'
 function App() {
-  //Hooks
-  const [age, setAge] = useState(0);
+  //setAge és modificada i, per tant, el valor de useState s’actualitza i obliga a renderitzar App.js.
+  const [age, setAge] = useState(7);
 
-  const serMasViejo = () => {
+  const sumaAge = () => {
     setAge(age + 1);
+  }
+  const restaAge = () => {
+    setAge(age - 1);
+  }
+  const resetAge = () => {
+    setAge(0);
+  }
+
+  const changeStyle = () =>{
+    
   }
 
   return (
     <div className="App">
-      <div>{age} años</div>
+      <ComponentResultat age={age} />
       <div>
-        <button onClick={serMasViejo}>Ser mas viejo</button>
+        {/* btn, truca a la funció i li suma una unitat a la variable age, modificant el valor de setAge */}
+        <ComponentButton funcio={sumaAge} name="Suma" />
+        <ComponentButton funcio={restaAge} name="Resta" />
+        <ComponentButton funcio={resetAge} name="Reset" />
+
+
       </div>
     </div>
   );
