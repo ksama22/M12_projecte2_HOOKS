@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import { Boton } from './componentes/Boton';
+import { Contador } from './componentes/Contador';
 
 function App() {
   // Declaracion de la variable magia
@@ -29,11 +31,7 @@ function App() {
   const numReset = () =>{
     setNum(0)
   }
-  const Boton = (props) =>{
-    return(
-        <button onClick={props.funcion}>{props.name}</button>
-    )
-  }
+  
   return (
     <div className="App">
       {
@@ -52,15 +50,20 @@ function App() {
       <Boton funcion={numSum} name="Incrementa"/>
       */
       }
-      
-      <div>
-        {num}
-      </div>
+      {
+      /*
+      <Contador contador={num}/>
     
       <Boton funcion={numSum} name="Suma"/>
       <Boton funcion={numSubstrac} name="Resta"/>
-      <Boton funcion={numReset} name="Reset"/>
+      <Boton funcion={numReset} name="Reset"/> 
+      */
+      }
       
+      <Boton funcion={MagicFun} name="Show/Hide"/>
+      <div>
+        {magia}
+      </div>
     
       
       
