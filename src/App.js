@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { ComponentMagia } from './components/Activitat1'
 import { ComponentResultat, ComponentButton } from './components/Activitat2-3'
@@ -11,6 +11,23 @@ function App() {
   const [edat, setEdat] = useState(7);
   const [colorText, setColorText] = useState("green");
   const [textVisible, setTextVisible] = useState("Hola");
+
+
+  //Es un escucha que mira si los valores cambian
+  useEffect(() => {
+    //Este no lo comprueba porque no mira la [edat]
+    if (edat >= 18) {
+      console.log("Activitat 1 major d'edat");
+    }
+    //Este lo comprueba porque  mira la [age]
+    if (age >= 18) {
+      console.log("Activitat 2 major edat");
+    }
+    // si no pongo ninguna  escucha todos
+    // si especifico [ variable1, variable2] solo "observa" esas variables
+  }, [age]);
+
+
   const togleText = () => {
     setTextVisible(textVisible === "Hola" ? null : "Hola")
   }
@@ -20,10 +37,10 @@ function App() {
     setAge(age + 1);
   }
 
-    /* Suma la edat  'ComponentButton'*/
-    const sumaEdat = () => {
-      setEdat(edat + 1);
-    }
+  /* Suma la edat  'ComponentButton'*/
+  const sumaEdat = () => {
+    setEdat(edat + 1);
+  }
   /* resta la edat 'ComponentButton'*/
   const restaAge = () => {
     setAge(age - 1);
