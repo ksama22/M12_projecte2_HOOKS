@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { Boton } from './componentes/Boton';
 import { Contador } from './componentes/Contador';
+import { Texto } from './componentes/Texto';
 
 function App() {
   // Declaracion de la variable magia
@@ -31,7 +32,15 @@ function App() {
   const numReset = () =>{
     setNum(0)
   }
+  const [colorText, setColorText] = useState("green");
   
+  const canviCol = () => {
+    if(colorText == "green"){
+      setColorText("red")
+    } else{
+      setColorText("green")
+    }
+  }
   return (
     <div className="App">
       {
@@ -60,13 +69,10 @@ function App() {
       */
       }
       
-      <Boton funcion={MagicFun} name="Show/Hide"/>
       <div>
-        {magia}
+        <Boton funcion={canviCol} name="Canvi"/>
+        <Texto colorTxt={colorText} contenido="CANVI DE COLOR"/>
       </div>
-    
-      
-      
       
     </div>
   );
